@@ -14,7 +14,7 @@ int main(int argc, char **argv){
 		return 1;
 	}
 	char *fname_joint = argv[1];
-	FILE* file_joint = fopen(fname_joint, "r"); //argv[1]
+	FILE* file_joint = fopen(fname_joint, "r"); 
 	if (file_joint == NULL){
 		perror("can't open file for read");
 		return errno;
@@ -28,8 +28,6 @@ int main(int argc, char **argv){
 		case 0: {
 			printf("Child: My PID -- %d\n", getpid());
             printf("Child: My parent's PID -- %d\n", getppid());
-            printf("Child: Enter my return code\n");
-            scanf("%d", &status);
             printf("Child: do job\n");
             
             read_and_write(file_joint, "child_copy", "Child");
